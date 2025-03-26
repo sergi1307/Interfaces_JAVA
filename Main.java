@@ -190,6 +190,31 @@ public class Main {
                     }
                     break;
                 case 7:
+                    if (listaCreada) {
+                        String opcion;
+                        int iteracion = 0, index;
+
+                        do {
+                            System.out.println("\nS. Ver la lista de posiciones.");
+                            System.out.println("N. No ver la lista, introducir directamente el índice.");
+
+                            opcion = Leer.leerTexto("\nIntroduzca una opción: ").toUpperCase();
+
+                            if (opcion.equals("S")) {
+                                iteracion++;
+                                for (iFigura2D f : figuras) {
+                                    System.out.println(f);
+                                }
+                            }
+                        } while (!opcion.equals("N") || iteracion == 1);
+
+                        index = Leer.leerEntero("\nIntroduzca un número para examinar su perímetro: ");
+
+                        System.out.println("Perímetro: " + figuras.get(index).perimetro());
+
+                    } else {
+                        System.out.println("\nNo se ha podido mostrar, no hay ninguna ArrayList creada.");
+                    }
                     break;
                 default:
                     System.out.println("\nIntroduzca un valor válido.");
